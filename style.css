@@ -1,0 +1,100 @@
+/*------------Google Fonts------------*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,400&family=Roboto:wght@400;500;700&display=swap');
+/*------------General------------*/
+:root {
+    --page-background-color: #F9F9F9;
+    --dark-step-line: #ABABAB;
+    --highlighted-step-line: #045DE9;
+    --ff-primary: 'Roboto', sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: var(--ff-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--page-background-color);
+}
+.container {
+    text-align: center;
+}
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+.progress-container::before {
+    content: "";
+    background-color: var(--dark-step-line);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index:-1;
+}
+.progress {
+    background-color: var(--highlighted-step-line);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%;
+    z-index:-1;
+    transition: .4s ease;
+}
+.circle {
+    background-color: var(--page-background-color);
+    color: var(--dark-step-line);
+    width: 30px;
+    height: 30px;
+    border: 4px solid var(--dark-step-line);
+    border-radius: 50%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    transition: .4s ease;
+}
+.circle.active {
+    border-color: var(--highlighted-step-line);
+}
+
+/**************2nd part of the problem - completed step style*****************/
+.circle.completed {
+    background-color: var(--highlighted-step-line);
+    color: var(--page-background-color);
+}
+/*****************************************************************************/
+
+.btn {
+    background-color: var(--highlighted-step-line);
+    color: var(--page-background-color);
+    border:0;
+    border-radius:6px;
+    cursor:pointer;
+    font-family: inherit;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+.btn.active {
+    transform: scale(0.98);
+}
+.btn::focus {
+    outline:0;
+}
+.btn:disabled {
+    background-color: rgba(52, 152, 219, 0.2);
+    cursor:not-allowed;
+}
